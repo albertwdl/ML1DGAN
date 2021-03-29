@@ -1,0 +1,54 @@
+
+
+
+
+
+F.relu(((sum(self.tconv2[0].weight[:,1,:,:]*fc1[0])-self.tconv2[1].running_mean[0])/torch.sqrt(self.tconv2[1].running_var[0]+self.tconv2[1].eps))*self.tconv2[1].weight[0]+self.tconv2[1].bias[0])
+
+
+old_running_mean = self.tconv2[1].running_mean[0]
+old_running_var = self.tconv2[1].running_var[0]
+x_mean = (self.tconv2[1].running_mean[0]-self.tconv2[1].momentum*old_running_mean)/(1-self.tconv2[1].momentum)
+x_var = (self.tconv2[1].running_var[0]-self.tconv2[1].momentum*old_running_var)/(1-self.tconv2[1].momentum)
+sum(tconv2[0]==F.relu(((sum(self.tconv2[0].weight[:,0,:,:]*fc1[0])-x_mean)/torch.sqrt(x_var+self.tconv2[1].eps))*self.tconv2[1].weight[0]+self.tconv2[1].bias[0]))
+sum(tconv2[0]==F.relu(((sum(self.tconv2[0].weight[:,0,:,:]*fc1[0])-self.tconv2[1].running_mean[0])/torch.sqrt(self.tconv2[1].running_var[0]+self.tconv2[1].eps))*self.tconv2[1].weight[0]+self.tconv2[1].bias[0]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[-1.9988, -1.1739, -1.7701, -0.5903],
+[-0.8136, -1.9049, -1.4749,  0.7699],
+[-0.9601,  0.3449, -0.4530, -0.6499],
+[ 0.5563, -0.9675,  0.1679,  3.4522]
